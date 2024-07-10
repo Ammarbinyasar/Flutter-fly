@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-
-class LoginScreen extends StatelessWidget {
+class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,21 +22,22 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SvgPicture.asset('assets/login.svg', // Add your image asset here
+              SvgPicture.asset('assets/signup.svg', // Add your image asset here
                 height: 200,
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Sign in to continue',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black54,
-                ),
               ),
               SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Username',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Email',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -54,33 +54,27 @@ class LoginScreen extends StatelessWidget {
                   suffixIcon: Icon(Icons.lock),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Checkbox(value: false, onChanged: (value) {}),
-                      Text('Remember me'),
-                    ],
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Add forgot password functionality here
-                    },
-                    child: Text('Forgot Password?'),
-                  ),
-                ],
-              ),
               SizedBox(height: 10),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Confirm Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  suffixIcon: Icon(Icons.lock),
+                ),
+              ),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Add login functionality here
+                  // Add sign-up functionality here
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black, backgroundColor: Colors.yellow,
                   minimumSize: Size(double.infinity, 50),
                 ),
-                child: Text('LOGIN'),
+                child: Text('SIGNUP'),
               ),
               SizedBox(height: 10),
               Row(
@@ -96,7 +90,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 10),
               ElevatedButton.icon(
                 onPressed: () {
-                  // Add Google login functionality here
+                  // Add Google sign-up functionality here
                 },
                 icon: Icon(Icons.login, color: Colors.red),
                 label: Text('Continue with Google'),
@@ -105,19 +99,19 @@ class LoginScreen extends StatelessWidget {
                   minimumSize: Size(double.infinity, 50),
                 ),
               ),
-            SizedBox(height: 20),
+              SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Don\'t have an account? ',
+                    'Already have an account? ',
                     style: TextStyle(color: Colors.black54),
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/Signup');
+                      Navigator.pushNamed(context, '/Login');
                     },
-                    child:  Text('Sign up'),
+                    child: Text('Login'),
                   ),
                 ],
               ),
